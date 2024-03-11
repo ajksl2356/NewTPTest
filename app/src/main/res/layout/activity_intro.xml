@@ -17,9 +17,10 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="L.Y.M studio"
-        android:textColor="#FFF7B1"
-        android:textStyle="bold|italic"
+        android:text="L.Y.M Studio"
+        android:textColor="#FFB547"
+        android:textStyle="bold"
+        android:fontFamily="@font/gogogo"
         android:textSize="24sp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"/>
