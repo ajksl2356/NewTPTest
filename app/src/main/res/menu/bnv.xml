@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/menu_bnv_upload" android:title="" android:icon="@drawable/baseline_cloud_upload_24"/>
+    <item android:id="@+id/menu_bnv_map" android:title="" android:icon="@drawable/baseline_map_24"/>
+    <item android:id="@+id/menu_bnv_girock" android:title="" android:icon="@drawable/baseline_my_24"/>
+
+
+</menu>
