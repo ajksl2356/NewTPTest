@@ -4,15 +4,54 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="30dp"
     tools:context=".activities.MainActivity">
-
-
-    <FrameLayout
-        android:id="@+id/container_fragment"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_marginTop="8dp" />
+        android:layout_height="match_parent"
+        android:gravity="">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:navigationIcon="@drawable/baseline_my_location_24"
+        app:menu="@menu/toolbar_main">
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_btn_white"
+            android:textSize="12sp"
+            android:hint="검색어 입력"
+            android:gravity="center"
+            android:padding="8dp"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
+            android:layout_marginRight="50dp"/>
+    </androidx.appcompat.widget.Toolbar>
+    <HorizontalScrollView
+        android:id="@+id/scroll_view"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="2dp"
+        android:scrollbars="none"
+        android:layout_centerInParent="true">
+
+        <!-- 별도의 xml 레이아웃파일에 분리하여 작성하고 가져와 보여주기 -->
+        <!-- id설정이 있어야 layout 하위 뷰들의 id를 binding 할 수 있음.-->
+        <include
+            android:id="@+id/layout_choice"
+            layout="@layout/choice"/>
+
+    </HorizontalScrollView>
+
+        <FrameLayout
+            android:id="@+id/container_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_marginTop="8dp" />
+    </RelativeLayout>
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bab"
         android:layout_width="match_parent"

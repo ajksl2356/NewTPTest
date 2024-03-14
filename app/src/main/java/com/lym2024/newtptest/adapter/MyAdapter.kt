@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.google.gson.Gson
-import com.lym2024.newtptest.data.Place
+import com.lym2024.newtptest.data.detail
 import com.lym2024.newtptest.databinding.RecyclerItemListFragmentBinding
 import org.w3c.dom.Document
 
-class MyAdapter(val context: Context, val documents : List<Place>) : Adapter<MyAdapter.VH>() {
+class MyAdapter(val context: Context, val documents : List<detail>) : Adapter<MyAdapter.VH>() {
 
     inner class VH(val binding : RecyclerItemListFragmentBinding) : ViewHolder(binding.root)
 
@@ -26,7 +26,7 @@ class MyAdapter(val context: Context, val documents : List<Place>) : Adapter<MyA
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        val place : Place = documents[position]
+        val place : detail = documents[position]
 
 //        holder.binding.tvPlaceName.text = place.place_name
 //        holder.binding.tvAddress.text = if (place.road_address_name == "") place.address_name else place.road_address_name
