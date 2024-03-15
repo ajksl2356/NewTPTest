@@ -22,9 +22,6 @@
             android:name=".activities.PlaceDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.PlaceDetalActivity"
-            android:exported="false" />
-        <activity
             android:name=".activities.EmailLoginActivity"
             android:exported="false" />
         <activity
@@ -38,7 +35,6 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -50,16 +46,17 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
                 <data
                     android:host="oauth"
                     android:scheme="kakao8ae260011109446d221ccd1d131690e7" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.kakao.vectormap.APP_KEY"
+            android:value="8ae260011109446d221ccd1d131690e7"/>
     </application>
 
 </manifest>
