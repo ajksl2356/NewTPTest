@@ -10,6 +10,9 @@ import com.kakao.vectormap.KakaoMapReadyCallback
 import com.kakao.vectormap.LatLng
 import com.kakao.vectormap.camera.CameraUpdate
 import com.kakao.vectormap.camera.CameraUpdateFactory
+import com.kakao.vectormap.label.LabelLayer
+import com.kakao.vectormap.label.LabelOptions
+import com.lym2024.newtptest.R
 import com.lym2024.newtptest.activities.MainActivity
 import com.lym2024.newtptest.databinding.FragmentPlaceMapBinding
 
@@ -35,6 +38,8 @@ class PlaceMapFragment : Fragment() {
             val myPos : LatLng = LatLng.from(latitude, logitude)
             val cameraUpdate : CameraUpdate = CameraUpdateFactory.newCenterPosition(myPos,16)
             kakaoMap.moveCamera(cameraUpdate)
+            val labelOptions : LabelOptions = LabelOptions.from(myPos).setStyles(R.drawable.ic_mypin)
+            val labelLayer : LabelLayer? = kakaoMap.labelManager!!.layer
         }
 
 

@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
     private fun pasing(){
         val retrofit = RetrofitHelper.getRetrofitInstance("http://api.kcisa.kr/openapi/")
         val retrofitApiService = retrofit.create(RetrofitApiService::class.java)
-        val call = retrofitApiService.getDatainfo("abaad2a1-e5ac-417d-989d-b5a25ad7bbb3", "10", "1")
+        val call = retrofitApiService.getDatainfo("abaad2a1-e5ac-417d-989d-b5a25ad7bbb3", "33699", "1")
         call.enqueue(object :Callback<AA>{
             override fun onResponse(call: Call<AA>, response: Response<AA>) {
                 aa = response.body()

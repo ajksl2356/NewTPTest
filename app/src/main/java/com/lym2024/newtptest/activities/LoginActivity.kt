@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
     private fun clickKakao() {
         val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
             if (error != null) {
-                Toast.makeText(this, "카카오 로그인 실패", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "카카오 로그인 취소", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(this, "카카오 로그인 성공!!", Toast.LENGTH_SHORT).show()
                 UserApiClient.instance.me { user, error ->
