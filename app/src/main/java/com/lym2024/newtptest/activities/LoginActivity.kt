@@ -1,5 +1,6 @@
 package com.lym2024.newtptest.activities
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.user.UserApiClient
@@ -73,16 +75,21 @@ class LoginActivity : AppCompatActivity() {
         resultLauncher.launch(intent)
     }
     val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            val intent: Intent? = it.data
+        val intent: Intent? = it.data
+        if (it.resultCode == Activity.RESULT_OK) {
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(intent)
-            val account: GoogleSignInAccount = task.result
+            val account: GoogleSignInAccount = task.getResult(ApiException::class.java)
             val id: String = account.id.toString()
             val email: String = account.email ?: ""
             Toast.makeText(this, "$id\n$email", Toast.LENGTH_SHORT).show()
             G.userAccount = UserAccount(id, email)
             startActivity(Intent(this, MainActivity::class.java))
             finish()
+        } else {
+            Toast.makeText(this, "로그인 취소", Toast.LENGTH_SHORT).show()
         }
+    }
+
     private fun clickNaver() {
         NaverIdLoginSDK.initialize(this, "5ctHj5RXe5j7BVwlHBDk", "tUTH849W4L", "연극공작소")
         NaverIdLoginSDK.authenticate(this, object : OAuthLoginCallback {
