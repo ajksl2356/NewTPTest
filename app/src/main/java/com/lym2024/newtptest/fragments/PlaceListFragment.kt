@@ -26,9 +26,8 @@ class PlaceListFragment : Fragment() {
 
          //리사이클러뷰에 MainActivity가 가지고 있는 대량의 장소의 정보를 보여지도록..
         val ma : MainActivity = activity as MainActivity
-        ma.qsd?: return // 아직 서버로딩이 완료되지 않았을 수도 있어서..
-
-        binding.recyclerView.adapter = MyAdapter(requireContext(), ma.qsd!!.body.items.item)
+        ma.aa?: return // 아직 서버로딩이 완료되지 않았을 수도 있어서..
+        binding.recyclerView.adapter = MyAdapter(requireContext(), ma.aa!!.response.body.items.item)
 
 
     }

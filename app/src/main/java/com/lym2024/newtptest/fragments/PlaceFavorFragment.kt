@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.lym2024.newtptest.data.detail
+
 import com.lym2024.newtptest.databinding.FragmentPlaceFavorBinding
 
 class PlaceFavorFragment : Fragment() {

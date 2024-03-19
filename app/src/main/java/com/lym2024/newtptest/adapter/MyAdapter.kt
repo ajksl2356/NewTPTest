@@ -28,7 +28,11 @@ class MyAdapter(val context: Context, val documents : List<Title>) : Adapter<MyA
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         val qsd : Title = documents[position]
-        holder.binding
+        holder.binding.tvTitle.text = qsd.title
+        holder.binding.tvType.text = qsd.type
+        holder.binding.tvContactPoint.text = qsd.contactPoint
+        holder.binding.tvUrl.text = qsd.url
+
 
 //        holder.binding.tvPlaceName.text = place.place_name
 //        holder.binding.tvAddress.text = if (place.road_address_name == "") place.address_name else place.road_address_name

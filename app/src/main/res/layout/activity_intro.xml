@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/intro22"
-    tools:context=".activities.IntroActivity">
+    tools:context=".activities.IntroActivity"
+    android:background="@drawable/bg_intro">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/intro3"/>
+        android:src="@drawable/logo"/>
 
     <TextView
         android:layout_width="match_parent"

@@ -1,5 +1,6 @@
 package com.lym2024.newtptest.data
 
+data class AA(var response: QSD)
 data class QSD(var header:ResultCode,val body:Items)
 data class ResultCode(var resultCode:String,var resultMsg:String)
 data class Items(var items:Item,val numOfRows:String,var pageNo:String,var totalCount:String )

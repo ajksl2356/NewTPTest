@@ -59,7 +59,6 @@ dependencies {
 
 
     implementation platform('com.google.firebase:firebase-bom:32.7.3')
-
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
     //카카오 로그인

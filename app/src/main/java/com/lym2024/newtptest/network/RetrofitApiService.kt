@@ -1,6 +1,7 @@
 package com.lym2024.newtptest.network
 
 //import com.lym2024.newtptest.data.KakaoSearchplaceRespons
+import com.lym2024.newtptest.data.AA
 import com.lym2024.newtptest.data.QSD
 import com.lym2024.newtptest.data.Search
 import retrofit2.Call
@@ -27,7 +28,7 @@ interface RetrofitApiService {
 
     @Headers("accept: application/json")
     @GET("CNV_060/request")
-    fun getDatainfo(@Query("serviceKey")serviceKey: String, @Query("numOfRows") numOfRows : String, @Query("pageNo") pageNo : String) : Call<QSD>
+    fun getDatainfo(@Query("serviceKey")serviceKey: String, @Query("numOfRows") numOfRows : String, @Query("pageNo") pageNo : String) : Call<AA>
 
 
 }
