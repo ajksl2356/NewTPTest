@@ -30,26 +30,11 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-        binding.tvGo.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+        binding.tvGo.setOnClickListener { startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
-        binding.tvSignup.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    SignupActivity::class.java
-                )
-            )
-        }
-        binding.layoutEmailLogin.setOnClickListener {
-            startActivity(
-                Intent(
-                    this,
-                    EmailLoginActivity::class.java
-                )
-            )
+        binding.tvSignup.setOnClickListener { startActivity(Intent(this, SignupActivity::class.java)) }
+        binding.layoutEmailLogin.setOnClickListener { startActivity(Intent(this, EmailLoginActivity::class.java))
         }
         binding.btnLoginKakao.setOnClickListener { clickKakao() }
         binding.btnLoginGoogle.setOnClickListener { clickGoogle() }
@@ -87,8 +72,7 @@ class LoginActivity : AppCompatActivity() {
         val intent: Intent = GoogleSignIn.getClient(this, signInOptions).signInIntent
         resultLauncher.launch(intent)
     }
-    val resultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+    val resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             val intent: Intent? = it.data
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(intent)
             val account: GoogleSignInAccount = task.result
@@ -119,13 +103,11 @@ class LoginActivity : AppCompatActivity() {
                     override fun onResponse(call: Call<String>, response: Response<String>) {
                         val s = response.body()
                         AlertDialog.Builder(this@LoginActivity).setMessage(s).create().show()
-
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
                         finish()
                     }
                     override fun onFailure(call: Call<String>, t: Throwable) {
-                        Toast.makeText(this@LoginActivity, "${t.message}", Toast.LENGTH_SHORT)
-                            .show()
+                        Toast.makeText(this@LoginActivity, "${t.message}", Toast.LENGTH_SHORT).show()
                     }
                 })
             }
