@@ -6,13 +6,13 @@ data class ResultCode(var resultCode:String,var resultMsg:String)
 data class Items(var items:Item,val numOfRows:String,var pageNo:String,var totalCount:String )
 data class Item(var item:List<Title>)
 data class Title(
-    var title:String,
-    var type:String,
+    var title:String,           //
+    var type:String,            //
     var period:String,
     var eventPeriod:String,
     var charge:String,
-    var contactPoint:String,
-    var url:String,
+    var contactPoint:String,    //
+    var url:String,             //
     var imageObject:String,
     var description:String,
     var viewCount:String
