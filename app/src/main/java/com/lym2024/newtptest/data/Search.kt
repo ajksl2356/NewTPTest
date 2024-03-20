@@ -10,7 +10,7 @@ data class Place(
     var address_name : String,
     var road_address_name : String,
     var x : String,
-    var y:String,
-    var place_url:String,
-    var distance:String
+    var y : String,
+    var place_url : String,
+    var distance : String
 )
