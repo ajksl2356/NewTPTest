@@ -5,11 +5,9 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationCallback
@@ -21,7 +19,6 @@ import com.lym2024.newtptest.R
 import com.lym2024.newtptest.data.AA
 import com.lym2024.newtptest.data.Place
 import com.lym2024.newtptest.data.PlaceMeta
-import com.lym2024.newtptest.data.QSD
 import com.lym2024.newtptest.data.ResultCode
 import com.lym2024.newtptest.data.Search
 import com.lym2024.newtptest.data.Title
@@ -37,7 +34,7 @@ import retrofit2.Response
 //abaad2a1-e5ac-417d-989d-b5a25ad7bbb3   서비스키
 
 class MainActivity : AppCompatActivity() {
-    var searchQuery: String = "서울"
+    var searchQuery: String = ""
     var myLocation: Location? = null
     var aa: AA? = null
     var search: Search? = null
@@ -49,8 +46,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        supportFragmentManager.beginTransaction().add(R.id.container_fragment, PlaceListFragment())
-            .commit()
+        supportFragmentManager.beginTransaction().add(R.id.container_fragment, PlaceListFragment()).commit()
         binding.bnv.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.menu_bnv_upload -> supportFragmentManager.beginTransaction().replace(R.id.container_fragment, PlaceListFragment()).commit()
@@ -99,17 +95,15 @@ class MainActivity : AppCompatActivity() {
             searchPlaces()
         }
     }
-    private fun pasing(page : String) {
+    private fun pasing() {
         val retrofit = RetrofitHelper.getRetrofitInstance("http://api.kcisa.kr/openapi/")
         val retrofitApiService = retrofit.create(RetrofitApiService::class.java)
-        val call = retrofitApiService.getDatainfo("abaad2a1-e5ac-417d-989d-b5a25ad7bbb3", "10", "1")
+        val call = retrofitApiService.getDatainfo("abaad2a1-e5ac-417d-989d-b5a25ad7bbb3", "30", "1")// 페이지투스트링
         call.enqueue(object :Callback<AA>{
             override fun onResponse(call: Call<AA>, response: Response<AA>) {
                 aa = response.body()
                 val header : ResultCode? = aa?.response?.header
                 val body : List<Title> ?= aa?.response?.body?.items?.item
-//                val pageNumber = 1
-//                pasing(pageNumber)
 //                AlertDialog.Builder(this@MainActivity).setMessage("$aa").create().show()
             }
 
