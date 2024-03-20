@@ -30,9 +30,10 @@ class MyAdapter(val context: Context, val documents : List<Title>) : Adapter<MyA
     override fun onBindViewHolder(holder: VH, position: Int) {
         val qsd : Title = documents[position]
         holder.binding.tvTitle.text = qsd.title
-        holder.binding.tvType.text = qsd.type
-        holder.binding.tvContactPoint.text = qsd.contactPoint
-        holder.binding.tvUrl.text = qsd.url
+//        holder.binding.tvType.text = qsd.type
+//        holder.binding.tvContactPoint.text = qsd.contactPoint
+        holder.binding.tvDescription.text = qsd.description
+//        holder.binding.tvUrl.text = qsd.url
 
 
 //        holder.binding.tvPlaceName.text = place.place_name
