@@ -21,34 +21,34 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="제목"
+            android:text="제목 : "
             android:textColor="@color/black"
             android:textStyle="bold"
             android:padding="4dp"
             android:layout_toRightOf="@id/iv"/>
         <TextView
-            android:id="@+id/tv_type"
+            android:id="@+id/tv_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_title"
-            android:text="기간"
+            android:text="설명 : "
             android:padding="4dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/iv"/>
-        <TextView
-            android:id="@+id/tv_contactPoint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="문의사항"
-            android:layout_toRightOf="@id/iv"
-            android:layout_below="@id/tv_type"/>
-        <TextView
-            android:id="@+id/tv_url"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="URL"
-            android:layout_toRightOf="@id/iv"
-            android:layout_below="@id/tv_contactPoint"/>
+<!--        <TextView-->
+<!--            android:id="@+id/tv_contactPoint"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="문의사항"-->
+<!--            android:layout_toRightOf="@id/iv"-->
+<!--            android:layout_below="@id/tv_type"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/tv_url"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="URL"-->
+<!--            android:layout_toRightOf="@id/iv"-->
+<!--            android:layout_below="@id/tv_contactPoint"/>-->
 
     </RelativeLayout>
 
