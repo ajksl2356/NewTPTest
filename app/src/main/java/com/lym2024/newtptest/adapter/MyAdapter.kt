@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.google.gson.Gson
+import com.lym2024.newtptest.activities.PlaceDetailActivity
 import com.lym2024.newtptest.data.QSD
 import com.lym2024.newtptest.data.Title
 import com.lym2024.newtptest.databinding.RecyclerItemListFragmentBinding
@@ -38,17 +39,17 @@ class MyAdapter(val context: Context, val documents : List<Title>) : Adapter<MyA
 //        holder.binding.tvAddress.text = if (place.road_address_name == "") place.address_name else place.road_address_name
 //        holder.binding.tvDistance.text = "${place.distance}m"
 //
-//        // 아이템뷰를 클릭하였을때 상세정보페이지 url 을 보여주는 화면으로 이동
-//        holder.binding.root.setOnClickListener {
-//            val intent = Intent(context, PlaceDetailActivity::class.java)
+        // 아이템뷰를 클릭하였을때 상세정보페이지 url 을 보여주는 화면으로 이동
+        holder.binding.root.setOnClickListener {
+            val intent = Intent(context, PlaceDetailActivity::class.java)
 //
-//            // 장소정보에 대한 데이터를 추가로 보내기 [ 객체는 추가데이터로 전송불가 --> Json 문자열로 변환 ]
-//            val gson = Gson()
-//            val s : String = gson.toJson(place) // 객체 --> json string
-//            intent.putExtra("place", s )
-//
-//            context.startActivity(intent)
-//        }
+            // 장소정보에 대한 데이터를 추가로 보내기 [ 객체는 추가데이터로 전송불가 --> Json 문자열로 변환 ]
+            val gson = Gson()
+            val s : String = gson.toJson(qsd) // 객체 --> json string
+            intent.putExtra("url", s )
+
+            context.startActivity(intent)
+        }
 
 
     }

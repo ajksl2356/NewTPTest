@@ -1,6 +1,5 @@
 package com.lym2024.newtptest.activities
 import android.Manifest
-import android.animation.ObjectAnimator
 import android.content.pm.PackageManager
 import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
@@ -61,7 +60,8 @@ class MainActivity : AppCompatActivity() {
             true
         }
         binding.bnv.background = null
-        pasing()
+
+        pasing( String())
         val permissionState : Int = checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
         if (permissionState == PackageManager.PERMISSION_DENIED){
             permissionResultLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -99,15 +99,17 @@ class MainActivity : AppCompatActivity() {
             searchPlaces()
         }
     }
-    private fun pasing(){
+    private fun pasing(page : String) {
         val retrofit = RetrofitHelper.getRetrofitInstance("http://api.kcisa.kr/openapi/")
         val retrofitApiService = retrofit.create(RetrofitApiService::class.java)
-        val call = retrofitApiService.getDatainfo("abaad2a1-e5ac-417d-989d-b5a25ad7bbb3", "33699", "1")
+        val call = retrofitApiService.getDatainfo("abaad2a1-e5ac-417d-989d-b5a25ad7bbb3", "10", "1")
         call.enqueue(object :Callback<AA>{
             override fun onResponse(call: Call<AA>, response: Response<AA>) {
                 aa = response.body()
                 val header : ResultCode? = aa?.response?.header
                 val body : List<Title> ?= aa?.response?.body?.items?.item
+//                val pageNumber = 1
+//                pasing(pageNumber)
 //                AlertDialog.Builder(this@MainActivity).setMessage("$aa").create().show()
             }
 
