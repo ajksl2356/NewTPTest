@@ -32,7 +32,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 //abaad2a1-e5ac-417d-989d-b5a25ad7bbb3   서비스키
-
 class MainActivity : AppCompatActivity() {
     var searchQuery: String = ""
     var myLocation: Location? = null
@@ -42,7 +41,6 @@ class MainActivity : AppCompatActivity() {
     val locationProviderClient: FusedLocationProviderClient by lazy {
         LocationServices.getFusedLocationProviderClient(this)
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -56,8 +54,7 @@ class MainActivity : AppCompatActivity() {
             true
         }
         binding.bnv.background = null
-
-        pasing( String())
+        pasing()
         val permissionState : Int = checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
         if (permissionState == PackageManager.PERMISSION_DENIED){
             permissionResultLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -65,15 +62,11 @@ class MainActivity : AppCompatActivity() {
             requestMyLocation()
         }
         binding.toolbar.setNavigationOnClickListener { requestMyLocation() }
-
     }// on Created method..
     val permissionResultLauncher : ActivityResultLauncher<String> = registerForActivityResult(ActivityResultContracts.RequestPermission()){
     if (it) requestMyLocation()
         else Toast.makeText(this,"내 위치정보를 제공하지 않아 검색 사용이 제한", Toast.LENGTH_SHORT).show()
     }
-
-
-
     private fun requestMyLocation(){
         val request : LocationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY,3000).build()
         if (ActivityCompat.checkSelfPermission(
@@ -106,11 +99,9 @@ class MainActivity : AppCompatActivity() {
                 val body : List<Title> ?= aa?.response?.body?.items?.item
 //                AlertDialog.Builder(this@MainActivity).setMessage("$aa").create().show()
             }
-
             override fun onFailure(call: Call<AA>, t: Throwable) {
                 Toast.makeText(this@MainActivity, "asdasdasd", Toast.LENGTH_SHORT).show()
             }
-
         })
     }
     // 카카오 로컬 검색 API를 활용하여 키워드로 장소를 검색하는 기능 메소드
@@ -122,7 +113,6 @@ class MainActivity : AppCompatActivity() {
         call.enqueue(object : Callback<Search>{
             override fun onResponse(call: Call<Search>, response: Response<Search>) {
                 search = response.body()
-
                 val meta: PlaceMeta? = search?.meta
                 val document: List<Place>? = search?.documents
                 binding.bnv.selectedItemId = R.id.menu_bnv_upload
