@@ -54,6 +54,11 @@ class MainActivity : AppCompatActivity() {
             true
         }
         binding.bnv.background = null
+        binding.etSearch.setOnEditorActionListener { v, actionId, event ->
+            searchQuery = binding.etSearch.text.toString()
+            searchPlaces()
+            false
+        }
         pasing()
         val permissionState : Int = checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
         if (permissionState == PackageManager.PERMISSION_DENIED){

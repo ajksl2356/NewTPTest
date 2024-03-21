@@ -10,10 +10,10 @@ import android.widget.Toast
 import com.google.gson.Gson
 import com.lym2024.newtptest.R
 import com.lym2024.newtptest.data.Title
-import com.lym2024.newtptest.databinding.ActivityPlaceDetailBinding
+import com.lym2024.newtptest.databinding.ActivityTitleDetailBinding
 
-class PlaceDetailActivity : AppCompatActivity() {
-    private val binding by lazy { ActivityPlaceDetailBinding.inflate(layoutInflater) }
+class TitleDetailActivity : AppCompatActivity() {
+    private val binding by lazy { ActivityTitleDetailBinding.inflate(layoutInflater) }
     private var isFavorite = false
     private lateinit var title :Title
     private lateinit var db : SQLiteDatabase
