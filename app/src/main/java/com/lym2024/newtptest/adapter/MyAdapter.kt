@@ -30,11 +30,6 @@ class MyAdapter(val context: Context, val documents : List<Title>) : Adapter<MyA
 //        holder.binding.tvContactPoint.text = qsd.contactPoint
         holder.binding.tvDescription.text = qsd.description
 //        holder.binding.tvUrl.text = qsd.url
-        //============================================================
-//        holder.binding.tvPlaceName.text = place.place_name
-//        holder.binding.tvAddress.text = if (place.road_address_name == "") place.address_name else place.road_address_name
-//        holder.binding.tvDistance.text = "${place.distance}m"
-//
         // 아이템뷰를 클릭하였을때 상세정보페이지 url 을 보여주는 화면으로 이동
         holder.binding.root.setOnClickListener {
             val intent = Intent(context, PlaceDetailActivity::class.java)
