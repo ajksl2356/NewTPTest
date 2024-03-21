@@ -21,32 +21,35 @@ class PlaceFavorFragment : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
     }
     override fun onResume() {
         super.onResume()
+        loddata()
     }
     private fun loddata(){
-        val db = requireContext().openOrCreateDatabase("title", Activity.MODE_PRIVATE, null)
-        val cursor = db.rawQuery("SELECT * FROM favor",null)
+        val db = requireContext().openOrCreateDatabase("url", Activity.MODE_PRIVATE, null)
+        val cursor = db.rawQuery("SELECT * FROM fav",null)
         cursor?.apply {
             moveToFirst()
             val titleList : MutableList<Title> = mutableListOf()
             for( i in 0 until count ) {
-                val title: String = getString(0)             // 제목
+                val title: String = getString(0)            // 제목
                 val type: String = getString(1)             // 기간
                 val period: String = getString(2)           // 기간
-                val eventPeriod: String = getString(3)     // 장소
-                val charge: String = getString(4)           // 금액
-                val contactPoint: String = getString(5)    // 문의 안내
-                val url: String = getString(6)             // URL
-                val imageObject: String = getString(7)    // 이미지 썸네일
-                val description: String = getString(8)     // 설명
-                val viewCount: String = getString(9)
-                val title1: Title = Title(title, type, period, eventPeriod, charge, contactPoint, url, imageObject, description, viewCount)
+                val eventPeriod: String = getString(3)      //시간
+                val eventSite : String = getString(4)       // 장소
+                val charge: String = getString(5)           // 금액
+                val contactPoint: String = getString(6)     // 문의 안내
+                val url: String = getString(7)              // URL
+                val imageObject: String = getString(8)      // 이미지 썸네일
+                val description: String = getString(9)      // 설명
+                val viewCount: String = getString(10)
+                val title1: Title = Title(title, type, period, eventPeriod, eventSite, charge, contactPoint, url, imageObject, description, viewCount)
                 titleList.add(title1)
                 moveToNext()
             }
-            binding.recyclerView.adapter = MyAdapter(requireContext(),titleList)
+            binding.recyclerView.adapter = MyAdapter(requireContext(), titleList )
         }
     }
 }
