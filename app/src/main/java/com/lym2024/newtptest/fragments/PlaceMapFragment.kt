@@ -27,9 +27,7 @@ import com.lym2024.newtptest.databinding.FragmentPlaceMapBinding
 import org.json.JSONObject
 
 class PlaceMapFragment : Fragment() {
-
     private val binding : FragmentPlaceMapBinding by lazy { FragmentPlaceMapBinding.inflate(layoutInflater) }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return binding.root
     }
@@ -47,7 +45,6 @@ class PlaceMapFragment : Fragment() {
             val labelOptions : LabelOptions = LabelOptions.from(myPos).setStyles(R.drawable.ic_mypin)
             val labelLayer : LabelLayer = kakaoMap.labelManager!!.layer!!
             labelLayer.addLabel(labelOptions)
-
             val placeList : List<Place> ?= (activity as MainActivity).search?.documents
             placeList?.forEach {
                 val pos = LatLng.from(it.y.toDouble(),it.x.toDouble())
@@ -59,7 +56,6 @@ class PlaceMapFragment : Fragment() {
                     val layout = GuiLayout(Orientation.Vertical)
                     layout.setPadding(16,16,16,16,)
                     layout.setBackground(R.drawable.base_msg, true)
-
                     texts.forEach { // 플레이스 이름 거리
                         val guiText = GuiText(it)
                         guiText.setTextSize(30)

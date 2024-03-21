@@ -11,7 +11,6 @@ class IntroActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intro)
-
         Handler(Looper.getMainLooper()).postDelayed({
             startActivity(Intent( this, LoginActivity::class.java ))
             finish()

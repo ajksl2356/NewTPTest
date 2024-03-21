@@ -6,7 +6,6 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class RetrofitHelper {
     companion object{
-
         fun getRetrofitInstance(baseUrl : String) : Retrofit {
             val retrofit = Retrofit.Builder()
                 .baseUrl(baseUrl)
@@ -14,8 +13,6 @@ class RetrofitHelper {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             return retrofit
-
         }
-
     }
 }

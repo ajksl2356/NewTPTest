@@ -89,7 +89,6 @@ class LoginActivity : AppCompatActivity() {
             Toast.makeText(this, "로그인 취소", Toast.LENGTH_SHORT).show()
         }
     }
-
     private fun clickNaver() {
         NaverIdLoginSDK.initialize(this, "5ctHj5RXe5j7BVwlHBDk", "tUTH849W4L", "연극공작소")
         NaverIdLoginSDK.authenticate(this, object : OAuthLoginCallback {

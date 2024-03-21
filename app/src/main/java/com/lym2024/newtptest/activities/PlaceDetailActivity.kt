@@ -29,14 +29,11 @@ class PlaceDetailActivity : AppCompatActivity() {
             binding.wv.loadUrl(title.url)
         }
         db = openOrCreateDatabase("url", MODE_PRIVATE, null)
-
         // "favor"라는 이름의 표(테이블) 만들기 - SQL 쿼리문을 사용하기.. CRUD 작업수행
         db.execSQL("CREATE TABLE IF NOT EXISTS fav (title TEXT PRIMARY KEY, type TEXT, period TEXT, eventPeriod TEXT, eventSite TEXT, charge TEXT, contactPoint TEXT, url TEXT, imageObject TEXT, description TEXT, viewCount TEXT )") //이거를 갯수 맞추어야 하는지 한번 확인해봐야함 - 페이버릿 프레그먼트랑 같이 확인해야함
-
         isFavorite = checkFavorite()
         if (isFavorite) binding.fabFavor.setImageResource(R.drawable.baseline_favorite_24)
         else binding.fabFavor.setImageResource(R.drawable.baseline_favorite_border_24)
-
         binding.fabFavor.setOnClickListener {
             if (isFavorite){
                 title.apply {
@@ -45,12 +42,10 @@ class PlaceDetailActivity : AppCompatActivity() {
                 Toast.makeText(this, "찜 목록에서 제거되었습니다.", Toast.LENGTH_SHORT).show()
             }else{
                 // 찜 DB에 데이터를 저장
-
                     title.apply {
                         db.execSQL("INSERT INTO fav VALUES('$title','$type','$period','$eventPeriod','$eventSite','$charge','$contactPoint','$url','$imageObject','$description','$viewCount')") //이것도 개수 맞추어야 하는지 한번 확인해봐야함 - 페이버릿 프레그먼트랑 같이 확인해야함
                     }
                 Toast.makeText(this, "찜 목록에 추가 되었습니다.", Toast.LENGTH_SHORT).show()
-
             }
             isFavorite =! isFavorite
             if (isFavorite) binding.fabFavor.setImageResource(R.drawable.baseline_favorite_24)
