@@ -10,6 +10,7 @@
         android:name=".GlobalApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -17,8 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NewTPTest"
         android:usesCleartextTraffic="true"
-        android:enableOnBackInvokedCallback="true"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.PlaceActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.TitleDetailActivity"
             android:exported="false" />
@@ -36,6 +39,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -47,6 +51,7 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
@@ -55,9 +60,10 @@
                     android:scheme="kakao8ae260011109446d221ccd1d131690e7" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.kakao.vectormap.APP_KEY"
-            android:value="8ae260011109446d221ccd1d131690e7"/>
+            android:value="8ae260011109446d221ccd1d131690e7" />
     </application>
 
 </manifest>
