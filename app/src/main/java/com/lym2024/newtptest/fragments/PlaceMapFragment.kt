@@ -21,10 +21,9 @@ import com.kakao.vectormap.mapwidget.component.GuiText
 import com.kakao.vectormap.mapwidget.component.Orientation
 import com.lym2024.newtptest.R
 import com.lym2024.newtptest.activities.MainActivity
-import com.lym2024.newtptest.activities.PlaceDetailActivity
+import com.lym2024.newtptest.activities.TitleDetailActivity
 import com.lym2024.newtptest.data.Place
 import com.lym2024.newtptest.databinding.FragmentPlaceMapBinding
-import org.json.JSONObject
 
 class PlaceMapFragment : Fragment() {
     private val binding : FragmentPlaceMapBinding by lazy { FragmentPlaceMapBinding.inflate(layoutInflater) }
@@ -71,7 +70,7 @@ class PlaceMapFragment : Fragment() {
                 }//apply...
             }//setonlabelClickListener
             kakaoMap.setOnInfoWindowClickListener { kakaoMap, infoWindow, guiId ->
-            val intent = Intent(requireContext(),PlaceDetailActivity::class.java)
+            val intent = Intent(requireContext(),TitleDetailActivity::class.java)
             val place : Place = infoWindow.tag as Place
             val json : String = Gson().toJson(place)
             intent.putExtra("place", json)
