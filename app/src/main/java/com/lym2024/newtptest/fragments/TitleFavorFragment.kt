@@ -6,10 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.lym2024.newtptest.adapter.MyAdapter
-import com.lym2024.newtptest.data.Place
 import com.lym2024.newtptest.data.Title
 import com.lym2024.newtptest.databinding.FragmentPlaceFavorBinding
-class PlaceFavorFragment : Fragment() {
+class TitleFavorFragment : Fragment() {
     lateinit var binding: FragmentPlaceFavorBinding
     override fun onCreateView(
         inflater: LayoutInflater,
