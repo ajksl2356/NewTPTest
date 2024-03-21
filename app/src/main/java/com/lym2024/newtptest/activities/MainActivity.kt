@@ -33,7 +33,7 @@ import retrofit2.Callback
 import retrofit2.Response
 //abaad2a1-e5ac-417d-989d-b5a25ad7bbb3   서비스키
 class MainActivity : AppCompatActivity() {
-    var searchQuery: String = ""
+    var searchQuery: String = "극장"
     var myLocation: Location? = null
     var aa: AA? = null
     var search: Search? = null
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
             searchPlaces()
         }
     }
-    private fun pasing() {
+    private fun pasing() { // json Object 작업 시작점
         val retrofit = RetrofitHelper.getRetrofitInstance("http://api.kcisa.kr/openapi/")
         val retrofitApiService = retrofit.create(RetrofitApiService::class.java)
         val call = retrofitApiService.getDatainfo("abaad2a1-e5ac-417d-989d-b5a25ad7bbb3", "30", "1")// 페이지투스트링
