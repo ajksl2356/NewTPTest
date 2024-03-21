@@ -7,10 +7,10 @@ import android.webkit.WebChromeClient
 import android.webkit.WebViewClient
 import com.google.gson.Gson
 import com.lym2024.newtptest.data.Place
-import com.lym2024.newtptest.databinding.ActivityPlaceBinding
+import com.lym2024.newtptest.databinding.ActivityPlaceDetailBinding
 
 class PlaceDetailActivity : AppCompatActivity() {
-    private val binding by lazy { ActivityPlaceBinding.inflate(layoutInflater) }
+    private val binding by lazy { ActivityPlaceDetailBinding.inflate(layoutInflater) }
     private lateinit var place : Place
     private lateinit var db2 : SQLiteDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
