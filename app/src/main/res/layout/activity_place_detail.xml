@@ -22,4 +22,5 @@
         android:layout_marginRight="16dp"
         android:src="@drawable/baseline_favorite_border_24"/>
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>

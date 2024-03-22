@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_btn_white"
                 android:textSize="12sp"
-                android:hint="검색어 입력"
+                android:hint="원하는 정보 눌러서 확인한 장소 입력"
                 android:gravity="center"
                 android:padding="8dp"
                 android:inputType="text"

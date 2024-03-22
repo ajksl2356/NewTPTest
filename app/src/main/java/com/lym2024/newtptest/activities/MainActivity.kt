@@ -23,7 +23,7 @@ import com.lym2024.newtptest.data.ResultCode
 import com.lym2024.newtptest.data.Search
 import com.lym2024.newtptest.data.Title
 import com.lym2024.newtptest.databinding.ActivityMainBinding
-import com.lym2024.newtptest.fragments.PlaceFavorFragment
+import com.lym2024.newtptest.fragments.TitleFavorFragment
 import com.lym2024.newtptest.fragments.PlaceListFragment
 import com.lym2024.newtptest.fragments.PlaceMapFragment
 import com.lym2024.newtptest.network.RetrofitApiService
@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.menu_bnv_upload -> supportFragmentManager.beginTransaction().replace(R.id.container_fragment, PlaceListFragment()).commit()
                 R.id.menu_bnv_map -> supportFragmentManager.beginTransaction().replace(R.id.container_fragment, PlaceMapFragment()).commit()
-                R.id.menu_bnv_girock -> supportFragmentManager.beginTransaction().replace(R.id.container_fragment, PlaceFavorFragment()).commit()
+                R.id.menu_bnv_girock -> supportFragmentManager.beginTransaction().replace(R.id.container_fragment, TitleFavorFragment()).commit()
             }
             true
         }
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             searchPlaces()
             false
         }
-        pasing()
+        parsing()
         val permissionState : Int = checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION)
         if (permissionState == PackageManager.PERMISSION_DENIED){
             permissionResultLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
@@ -93,7 +93,7 @@ class MainActivity : AppCompatActivity() {
             searchPlaces()
         }
     }
-    private fun pasing() { // json Object 작업 시작점
+    private fun parsing() { // json Object 작업 시작점
         val retrofit = RetrofitHelper.getRetrofitInstance("http://api.kcisa.kr/openapi/")
         val retrofitApiService = retrofit.create(RetrofitApiService::class.java)
         val call = retrofitApiService.getDatainfo("abaad2a1-e5ac-417d-989d-b5a25ad7bbb3", "30", "1")// 페이지투스트링
@@ -103,12 +103,15 @@ class MainActivity : AppCompatActivity() {
                 val header : ResultCode? = aa?.response?.header
                 val body : List<Title> ?= aa?.response?.body?.items?.item
 //                AlertDialog.Builder(this@MainActivity).setMessage("$aa").create().show()
+
+
             }
             override fun onFailure(call: Call<AA>, t: Throwable) {
                 Toast.makeText(this@MainActivity, "asdasdasd", Toast.LENGTH_SHORT).show()
             }
         })
     }
+
     // 카카오 로컬 검색 API를 활용하여 키워드로 장소를 검색하는 기능 메소드
     private fun searchPlaces() {
 //        Toast.makeText(this, "$searchQuery\\n${myLocation?.latitude},${myLocation?.longitude}", Toast.LENGTH_SHORT).show()
