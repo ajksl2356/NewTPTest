@@ -103,8 +103,6 @@ class MainActivity : AppCompatActivity() {
                 val header : ResultCode? = aa?.response?.header
                 val body : List<Title> ?= aa?.response?.body?.items?.item
 //                AlertDialog.Builder(this@MainActivity).setMessage("$aa").create().show()
-
-
             }
             override fun onFailure(call: Call<AA>, t: Throwable) {
                 Toast.makeText(this@MainActivity, "asdasdasd", Toast.LENGTH_SHORT).show()
