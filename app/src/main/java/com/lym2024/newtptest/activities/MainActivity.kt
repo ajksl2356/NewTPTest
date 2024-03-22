@@ -5,6 +5,8 @@ import android.location.Location
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
+import android.text.Html
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -109,7 +111,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
     // 카카오 로컬 검색 API를 활용하여 키워드로 장소를 검색하는 기능 메소드
     private fun searchPlaces() {
 //        Toast.makeText(this, "$searchQuery\\n${myLocation?.latitude},${myLocation?.longitude}", Toast.LENGTH_SHORT).show()
