@@ -1,26 +1,36 @@
 {
   "project_info": {
-    "project_number": "958468002740",
-    "project_id": "newtptest2",
-    "storage_bucket": "newtptest2.appspot.com"
+    "project_number": "354082188100",
+    "project_id": "newtptest",
+    "storage_bucket": "newtptest.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:958468002740:android:192cda9c4fc714b016d8e1",
+        "mobilesdk_app_id": "1:354082188100:android:460f4773dc00fcfa030511",
         "android_client_info": {
           "package_name": "com.lym2024.newtptest"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "354082188100-nid130bjjtmt11nlshvs2i2jkt3k3iea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAQhsc3D83XVAqy5MCeTSKCEQvmwj4L4lI"
+          "current_key": "AIzaSyBrU27eJn-q3D1_-vEEQdv2l5iW16ag0-E"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "354082188100-nid130bjjtmt11nlshvs2i2jkt3k3iea.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

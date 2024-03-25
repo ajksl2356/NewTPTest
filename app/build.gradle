@@ -52,7 +52,8 @@ dependencies {
 
     // 구글 로그인
     implementation 'com.google.android.gms:play-services-auth:21.0.0'
-
+    // 파이어베이스 업데이트 사용자
+    implementation 'com.google.firebase:firebase-auth-ktx:22.3.1'
 
 
     testImplementation 'junit:junit:4.13.2'
@@ -60,7 +61,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
 
-    implementation platform('com.google.firebase:firebase-bom:32.7.3')
+    implementation platform("com.google.firebase:firebase-bom:32.8.0")
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
     //카카오 로그인
