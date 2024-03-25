@@ -29,7 +29,7 @@ class SignupActivity : AppCompatActivity() {
         val userRef : CollectionReference = Firebase.firestore.collection("emailUsers")
         userRef.whereEqualTo("email", email).get().addOnSuccessListener {
             if (it.documents.size>0){
-                AlertDialog.Builder(this).setMessage("중복된 이메일이 있습니당. 다시 확인하여 입력해 주시기 바랍니다.").create().show()
+                AlertDialog.Builder(this).setMessage("중복된 이메일이 있습니다. 다시 확인하여 입력해 주시기 바랍니다.").create().show()
                 binding.inputLayoutEmail.editText!!.requestFocus()
                 binding.inputLayoutEmail.editText!!.selectAll()
             }else{

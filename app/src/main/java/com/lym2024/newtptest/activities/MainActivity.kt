@@ -35,7 +35,7 @@ import retrofit2.Callback
 import retrofit2.Response
 //abaad2a1-e5ac-417d-989d-b5a25ad7bbb3   서비스키
 class MainActivity : AppCompatActivity() {
-    var searchQuery: String = "극장"
+    var searchQuery: String = "화장실"
     var myLocation: Location? = null
     var aa: AA? = null
     var search: Search? = null
