@@ -36,5 +36,6 @@ class PasswordActivity : AppCompatActivity() {
         binding.btnSave.setOnClickListener {
             startActivity(Intent(this, EmailLoginActivity::class.java))
         }
+        finish()
     }
 }

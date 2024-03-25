@@ -90,7 +90,7 @@ class LoginActivity : AppCompatActivity() {
         }
     }
     private fun clickNaver() {
-        NaverIdLoginSDK.initialize(this, "5ctHj5RXe5j7BVwlHBDk", "tUTH849W4L", "연극공작소")
+        NaverIdLoginSDK.initialize(this, "5ctHj5RXe5j7BVwlHBDk", "tUTH849W4L", "예술공작소")
         NaverIdLoginSDK.authenticate(this, object : OAuthLoginCallback {
             override fun onError(errorCode: Int, message: String) {
                 TODO("Not yet implemented")

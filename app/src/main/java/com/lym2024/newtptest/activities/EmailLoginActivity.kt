@@ -1,7 +1,9 @@
 package com.lym2024.newtptest.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -15,10 +17,17 @@ class EmailLoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.toolbar.setNavigationOnClickListener { finish() }
         binding.btnSignin.setOnClickListener { clickSignup() }
+        binding.btnChange.setOnClickListener { clickChange() }
     }
     private fun clickSignup(){
         val email = binding.inputLayoutEmail.editText!!.text.toString()
         val password = binding.inputLayoutPassword.editText!!.text.toString()
         val userRef : CollectionReference = Firebase.firestore.collection("emailUser")
+    }
+    private fun clickChange(){
+        binding.btnChange.setOnClickListener {
+            startActivity(Intent(this@EmailLoginActivity, PasswordActivity::class.java))
+            finish()
+        }
     }
 }
