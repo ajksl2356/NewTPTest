@@ -24,17 +24,12 @@ class MyAdapter(val context: Context, val documents : List<Title>) : Adapter<MyA
     }
     override fun onBindViewHolder(holder: VH, position: Int) {
         val qsd : Title = documents[position]
-
         var title : String = removeAllHtmlTags(qsd.title)
         var desc : String = removeAllHtmlTags(qsd.description)
-
         title = title.trim()
         holder.binding.tvTitle.text = title
-
-
         desc = desc.trim()
         holder.binding.tvDescription.text = desc
-
         // 아이템뷰를 클릭하였을때 상세정보페이지 url 을 보여주는 화면으로 이동
         holder.binding.root.setOnClickListener {
             val intent = Intent(context, TitleDetailActivity::class.java)
@@ -44,10 +39,7 @@ class MyAdapter(val context: Context, val documents : List<Title>) : Adapter<MyA
             intent.putExtra("url", s )
             context.startActivity(intent)
         }
-
     }  private fun removeAllHtmlTags(input: String): String {
         return input.replace(Regex("<.*?>"), "")
     }
-
-
 }
