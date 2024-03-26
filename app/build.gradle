@@ -54,6 +54,8 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:21.0.0'
     // 파이어베이스 업데이트 사용자
     implementation 'com.google.firebase:firebase-auth-ktx:22.3.1'
+    // Jsoup 이걸로 HTML 원하는 텍스트 추출할꺼임
+    implementation 'org.jsoup:jsoup:1.17.2'
 
 
     testImplementation 'junit:junit:4.13.2'
